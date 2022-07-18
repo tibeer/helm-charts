@@ -1,0 +1,9 @@
+---
+ingress:
+  className: "nginx"
+  annotations: {}
+  host: test.tibeer.de
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local

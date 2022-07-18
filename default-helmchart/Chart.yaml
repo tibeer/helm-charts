@@ -1,0 +1,7 @@
+---
+apiVersion: v2
+name: default-helmchart
+description: A Helm chart to test external accesibility
+type: application
+version: 1.0.0
+appVersion: "latest"  # version of nginx
