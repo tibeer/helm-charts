@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "scs-startpage.fullname" . }}
+  labels:
+    {{- include "scs-startpage.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "scs-startpage.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "scs-startpage.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "b4bz/homer:latest"
+          imagePullPolicy: "Always"
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - mountPath: /www/assets/
+              name: config
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "scs-startpage.fullname" . }}
+            items:
+              - key: config
+                path: config.yml
