@@ -3,7 +3,7 @@ entries:
   default-helmchart:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-08-29T17:27:01.945265+02:00"
+    created: "2023-04-20T13:59:24.143638+02:00"
     description: A Helm chart to test external accesibility
     digest: c074ef5e361767498820e11cb69c59106478020dcac95f709176b18d6f2e732b
     name: default-helmchart
@@ -11,10 +11,25 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/default-helmchart-1.0.0.tgz
     version: 1.0.0
+  example-app:
+  - apiVersion: v2
+    appVersion: 1.24.0
+    created: "2023-04-20T13:59:24.145839+02:00"
+    dependencies:
+    - name: cockroachdb
+      repository: https://charts.cockroachdb.com/
+      version: 10.0.8
+    description: A Helm chart to test a workload
+    digest: 2c077bf71161098c05ef143dceced595d6645b51675dcb2ff7745905b62462b6
+    name: example-app
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/example-app-1.0.0.tgz
+    version: 1.0.0
   scs-startpage:
   - apiVersion: v2
     appVersion: v22.08.1
-    created: "2022-08-29T17:27:01.945931+02:00"
+    created: "2023-04-20T13:59:24.146629+02:00"
     description: A Helm chart for SCS startpage
     digest: a2d3af94666aaa3126fabfff9a525db39c6c970441d0cb1e7cbd11b6c9e62fe6
     name: scs-startpage
@@ -22,4 +37,4 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/scs-startpage-1.0.0.tgz
     version: 1.0.0
-generated: "2022-08-29T17:27:01.944913+02:00"
+generated: "2023-04-20T13:59:24.141543+02:00"
