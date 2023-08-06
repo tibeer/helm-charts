@@ -4,9 +4,10 @@ This repository contains some helm charts.
 
 | Chart | Description |
 |-------|-------------|
-| default-helmchart | Helmchart that installs an nginx webserver including an ingress to the service. Used for testing external cluster access, especially for edge kubernetes installations. |
+| nginx-welcome | Helmchart that installs an nginx webserver including an ingress to the service. Used for testing external cluster access, especially for edge kubernetes installations. |
 | scs-startpage | Chart that installs a preconfigured [homer](https://github.com/bastienwirtz/homer) dashboard for the [SCS project](https://github.com/SovereignCloudStack) |
-| example-app | Chart to deploy an example application containing a web app, database, ingress. Used for backup and mgiration tests. |
+| fastapi-cockroachdb-mock | Chart to deploy an example application containing a web app, database, ingress. Used for backup and migration tests. |
+| uptime-kuma | Helmchart for running [uptime-kuma](https://github.com/louislam/uptime-kuma) in kubernetes |
 
 ## Usage
 
@@ -14,7 +15,6 @@ This repository contains some helm charts.
 helm repo add tibeer https://tibeer.github.io/helm-charts/  # the trailing backslack is important
 helm repo update tibeer
 ```
-
 
 ## Update this
 

@@ -2,18 +2,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "default-helmchart.fullname" . }}
+  name: {{ include "nginx-welcome.fullname" . }}
   labels:
-    {{- include "default-helmchart.labels" . | nindent 4 }}
+    {{- include "nginx-welcome.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "default-helmchart.selectorLabels" . | nindent 6 }}
+      {{- include "nginx-welcome.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "default-helmchart.selectorLabels" . | nindent 8 }}
+        {{- include "nginx-welcome.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}

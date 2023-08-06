@@ -1,40 +1,51 @@
 apiVersion: v1
 entries:
-  default-helmchart:
+  fastapi-cockroachdb-mock:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-04-20T13:59:24.143638+02:00"
-    description: A Helm chart to test external accesibility
-    digest: c074ef5e361767498820e11cb69c59106478020dcac95f709176b18d6f2e732b
-    name: default-helmchart
-    type: application
-    urls:
-    - https://tibeer.github.io/helm-charts/default-helmchart-1.0.0.tgz
-    version: 1.0.0
-  example-app:
-  - apiVersion: v2
-    appVersion: 1.24.0
-    created: "2023-04-20T13:59:24.145839+02:00"
+    created: "2023-08-06T20:55:40.601235+02:00"
     dependencies:
     - name: cockroachdb
       repository: https://charts.cockroachdb.com/
       version: 10.0.8
     description: A Helm chart to test a workload
-    digest: 2c077bf71161098c05ef143dceced595d6645b51675dcb2ff7745905b62462b6
-    name: example-app
+    digest: 4b588d38f23c2ffe18ef9ab53f1332598c1bd3962d9d8a0adcd6829526a97a99
+    name: fastapi-cockroachdb-mock
     type: application
     urls:
-    - https://tibeer.github.io/helm-charts/example-app-1.0.0.tgz
+    - https://tibeer.github.io/helm-charts/fastapi-cockroachdb-mock-1.0.0.tgz
+    version: 1.0.0
+  nginx-welcome:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-08-06T20:55:40.601456+02:00"
+    description: A Helm chart to test external accesibility
+    digest: 7146bab6d223dde3504e24616e31dd000f2fefec2e82065727fcfc6e8fd728f5
+    name: nginx-welcome
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/nginx-welcome-1.0.0.tgz
     version: 1.0.0
   scs-startpage:
   - apiVersion: v2
-    appVersion: v22.08.1
-    created: "2023-04-20T13:59:24.146629+02:00"
+    appVersion: latest
+    created: "2023-08-06T20:55:40.601997+02:00"
     description: A Helm chart for SCS startpage
-    digest: a2d3af94666aaa3126fabfff9a525db39c6c970441d0cb1e7cbd11b6c9e62fe6
+    digest: 6fb9fd2d190bbda752268be1b9a6671790d084854d9e5cba56d6e41f3b537f68
     name: scs-startpage
     type: application
     urls:
     - https://tibeer.github.io/helm-charts/scs-startpage-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-20T13:59:24.141543+02:00"
+  uptime-kuma:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-08-06T20:55:40.60232+02:00"
+    description: A Helm chart for running uptime-kuma in Kubernetes
+    digest: 9d4505f6efd4cff6ccfb9093cd8e8088697a0ec2b390bf6a7eee34627470213c
+    name: uptime-kuma
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/uptime-kuma-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-08-06T20:55:40.599052+02:00"
