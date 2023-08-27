@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "scs-startpage.name" -}}
+{{- define "homer-startpage.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "scs-startpage.fullname" -}}
+{{- define "homer-startpage.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "scs-startpage.chart" -}}
+{{- define "homer-startpage.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "scs-startpage.labels" -}}
-helm.sh/chart: {{ include "scs-startpage.chart" . }}
-{{ include "scs-startpage.selectorLabels" . }}
+{{- define "homer-startpage.labels" -}}
+helm.sh/chart: {{ include "homer-startpage.chart" . }}
+{{ include "homer-startpage.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "scs-startpage.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "scs-startpage.name" . }}
+{{- define "homer-startpage.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "homer-startpage.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}

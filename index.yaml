@@ -3,7 +3,7 @@ entries:
   fastapi-cockroachdb-mock:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-06T20:55:40.601235+02:00"
+    created: "2023-08-27T15:56:52.967324+02:00"
     dependencies:
     - name: cockroachdb
       repository: https://charts.cockroachdb.com/
@@ -15,10 +15,21 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/fastapi-cockroachdb-mock-1.0.0.tgz
     version: 1.0.0
+  homer-startpage:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-08-27T15:56:52.967827+02:00"
+    description: A Helm chart for SCS startpage
+    digest: 840dea3f6c1fd29dd72079d08937d3a5c7a9aa71eb2b0ad35907d629a664f35a
+    name: homer-startpage
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/homer-startpage-1.0.0.tgz
+    version: 1.0.0
   nginx-welcome:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-06T20:55:40.601456+02:00"
+    created: "2023-08-27T15:56:52.968038+02:00"
     description: A Helm chart to test external accesibility
     digest: 7146bab6d223dde3504e24616e31dd000f2fefec2e82065727fcfc6e8fd728f5
     name: nginx-welcome
@@ -26,21 +37,10 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/nginx-welcome-1.0.0.tgz
     version: 1.0.0
-  scs-startpage:
-  - apiVersion: v2
-    appVersion: latest
-    created: "2023-08-06T20:55:40.601997+02:00"
-    description: A Helm chart for SCS startpage
-    digest: 6fb9fd2d190bbda752268be1b9a6671790d084854d9e5cba56d6e41f3b537f68
-    name: scs-startpage
-    type: application
-    urls:
-    - https://tibeer.github.io/helm-charts/scs-startpage-1.0.0.tgz
-    version: 1.0.0
   uptime-kuma:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-06T20:55:40.60232+02:00"
+    created: "2023-08-27T15:56:52.968385+02:00"
     description: A Helm chart for running uptime-kuma in Kubernetes
     digest: 9d4505f6efd4cff6ccfb9093cd8e8088697a0ec2b390bf6a7eee34627470213c
     name: uptime-kuma
@@ -48,4 +48,4 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/uptime-kuma-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-06T20:55:40.599052+02:00"
+generated: "2023-08-27T15:56:52.964983+02:00"

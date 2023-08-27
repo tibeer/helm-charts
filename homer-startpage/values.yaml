@@ -1,5 +1,5 @@
 ---
-# Default values for scs-startpage.
+# Default values for homer-startpage.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -21,49 +21,49 @@ ingress:
   #    hosts:
   #      - chart-example.local
 homerConfig:
-  title: "SCS Startpage"
-  subtitle: Sovereign Cloud Stack
+  title: "Homer"
+  subtitle: Homer startpage
   logo: "https://raw.githubusercontent.com/SovereignCloudStack/website/main/_assets/android-chrome-512x512.png"
   header: true
   footer: false
   theme: default
   colors:
     light:
-      highlight-primary: "#ffffff"
-      highlight-secondary: "#50c3a5"  # scs green
-      highlight-hover: "#7d7d82"  # scs grey
+      highlight-primary: "#f5f5f5"
+      highlight-secondary: "#7d7d82"  # grey
+      highlight-hover: "#f5f5f5"
       background: "#f5f5f5"
       card-background: "#ffffff"
       text: "#363636"
       text-header: "#000000"
       text-title: "#303030"
-      text-subtitle: "#0f5fe1"  # scs blue
+      text-subtitle: "#1167b1"  # blue
       card-shadow: "rgba(0, 0, 0, 0.1)"
       link-hover: "#363636"
     dark:
-      highlight-primary: "#0f5fe1"  # scs blue
+      highlight-primary: "#1167b1"  # blue
       highlight-secondary: "#7d7d82"
-      highlight-hover: "#131313"
+      highlight-hover: "#1167b1"
       background: "#131313"
       card-background: "#2b2b2b"
-      text: "#7d7d82"  # scs grey
+      text: "#7d7d82"  # grey
       text-header: "#000000"
-      text-title: "#50c3a5"  # scs green
+      text-title: "#ffffff"
       text-subtitle: "#f5f5f5"
       card-shadow: "rgba(0, 0, 0, 0.4)"
       link-hover: "#ffdd57"
   links:
     - name: "Homepage"
       icon: "fas fa-house"
-      url: "https://scs.community/"
+      url: "https://foo.bar/"
       target: "_blank"
     - name: "Documentation"
       icon: "fas fa-book"
-      url: "https://scs.community/docs/contributor/"
+      url: "https://foo.bar/docs/"
       target: "_blank"
     - name: "Bug report"
       icon: "fas fa-bug"
-      url: "https://github.com/SovereignCloudStack/issues"
+      url: "https://github.com/tibeer/helm-charts/issues"
       target: "_blank"
   services:
     - name: "Community"
@@ -73,19 +73,13 @@ homerConfig:
           logo: "https://jitsi.org/wp-content/themes/jitsi/images/logo-web-2020.png"
           subtitle: "Video conferencing"
           tag: "community"
-          url: "https://conf.scs.koeln:8443/beermann"
-          target: "_blank"
-        - name: "Mailman"
-          logo: "https://docs.mailman3.org/en/latest/_static/logo2010-2.jpg"
-          subtitle: "Mailing list management"
-          tag: "community"
-          url: "https://scs.sovereignit.de/mailman3/postorius/"
+          url: "https://foo.bar:8443"
           target: "_blank"
         - name: "Nextcloud"
           logo: "https://avatars.githubusercontent.com/u/19211038?s=200&v=4"
           subtitle: "Document share"
           tag: "share"
-          url: "https://ms.scs.sovereignit.de/nextcloud/"
+          url: "https://foo.bar/nextcloud/"
           target: "_blank"
     - name: "Development"
       icon: "fas fa-wrench"
@@ -94,7 +88,7 @@ homerConfig:
           logo: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
           subtitle: "Public Code"
           tag: "development"
-          url: "https://github.com/SovereignCloudStack"
+          url: "https://github.com/tibeer"
           target: "_blank"
         - name: "Okeanos"
           logo: "https://github.com/gardener/gardener/raw/master/logo/gardener-large.png"
@@ -109,20 +103,5 @@ homerConfig:
           logo: "https://wekan.github.io/wekan-logo.svg"
           subtitle: "Public Code"
           tag: "planning"
-          url: "https://scs.sovereignit.de/wekan"
-          target: "_blank"
-        - name: "Etherpad"
-          logo: "https://raw.githubusercontent.com/ether/etherpad-lite/develop/src/static/img/brand.svg"
-          subtitle: "Collaborative note taking"
-          tag: "collaboration"
-          url: "https://input.osb-alliance.de/"
-          target: "_blank"
-    - name: "Clouds"
-      icon: "fas fa-warehouse"
-      items:
-        - name: "Pluscloud Open"
-          logo: "https://www.plusserver.com/hubfs/cms_assets/symbols-prod/symbol-prod-pluscloud_open.svg"
-          subtitle: "SCS cloud"
-          tag: "cloud"
-          url: "https://ui.gx-scs.sovereignit.cloud/auth/login/?next=/"
+          url: "https://foo.bar/wekan"
           target: "_blank"

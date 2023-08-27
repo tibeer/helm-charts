@@ -1,5 +1,5 @@
 apiVersion: v2
-name: scs-startpage
+name: homer-startpage
 description: A Helm chart for SCS startpage
 
 # A chart can be either an 'application' or a 'library' chart.

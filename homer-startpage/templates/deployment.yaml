@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "scs-startpage.fullname" . }}
+  name: {{ include "homer-startpage.fullname" . }}
   labels:
-    {{- include "scs-startpage.labels" . | nindent 4 }}
+    {{- include "homer-startpage.labels" . | nindent 4 }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "scs-startpage.selectorLabels" . | nindent 6 }}
+      {{- include "homer-startpage.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "scs-startpage.selectorLabels" . | nindent 8 }}
+        {{- include "homer-startpage.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
@@ -36,7 +36,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{ include "scs-startpage.fullname" . }}
+            name: {{ include "homer-startpage.fullname" . }}
             items:
               - key: config
                 path: config.yml
