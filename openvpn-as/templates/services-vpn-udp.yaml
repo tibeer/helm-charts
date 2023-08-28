@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "openvpn-as.fullname" . }}-vpnudp
+  labels:
+    {{- include "openvpn-as.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.vpnudp.type }}
+  ports:
+    - port: {{ .Values.service.vpnudp.port }}
+      targetPort: vpnudp
+      protocol: UDP
+      name: vpnudp
+  selector:
+    {{- include "openvpn-as.selectorLabels" . | nindent 4 }}

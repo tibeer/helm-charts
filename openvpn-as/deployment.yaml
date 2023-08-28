@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openvpn-as
+  namespace: vpn
+  labels:
+    app: openvpn-as
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: openvpn-as
+  template:
+    metadata:
+      labels:
+        app: openvpn-as
+    spec:
+      containers:
+        - name: openvpn-as
+          image: ghcr.io/tibeer/ovpn-as
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 943
+              hostPort: 943
+              protocol: TCP
+            - containerPort: 9443
+              hostPort: 9443
+              protocol: TCP
+            - containerPort: 1194
+              hostPort: 1194
+              protocol: UDP
+          securityContext:
+            privileged: true
+            capabilities:
+              add:
+                - NET_ADMIN

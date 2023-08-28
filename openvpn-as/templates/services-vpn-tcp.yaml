@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "openvpn-as.fullname" . }}-vpntcp
+  labels:
+    {{- include "openvpn-as.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.vpntcp.type }}
+  ports:
+    - port: {{ .Values.service.vpntcp.port }}
+      targetPort: vpntcp
+      protocol: TCP
+      name: vpntcp
+  selector:
+    {{- include "openvpn-as.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openvpn-as
+  namespace: vpn
+  labels:
+    app: openvpn-as
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: openvpn-as
+  template:
+    metadata:
+      labels:
+        app: openvpn-as
+    spec:
+      containers:
+        - name: openvpn-as
+          image: ghcr.io/tibeer/ovpn-as
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 943
+              name: http
+              protocol: TCP
+            - containerPort: 9443
+              name: vpntcp
+              protocol: TCP
+            - containerPort: 1194
+              name: vpnudp
+              protocol: UDP
+          securityContext:
+            privileged: true
+            capabilities:
+              add:
+                - NET_ADMIN
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: openvpn-as-http
+  namespace: vpn
+  labels:
+    app: openvpn-as
+  annotations:
+    metallb.universe.tf/address-pool: pool
+    metallb.universe.tf/allow-shared-ip: default
+spec:
+  type: LoadBalancer
+  #loadBalancerIP: 10.0.0.111
+  ports:
+    - port: 943
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: openvpn-as

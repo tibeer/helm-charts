@@ -1,0 +1,24 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    server: https://acme-staging.api.letsencrypt.org/directory
+    email: tibeer@outlook.de
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    http01: {}
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v01.api.letsencrypt.org/directory
+    email: tibeer@outlook.de
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    http01: {}
