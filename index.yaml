@@ -3,7 +3,7 @@ entries:
   fastapi-cockroachdb-mock:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-28T07:02:17.4023+02:00"
+    created: "2023-09-01T08:22:08.604706+02:00"
     dependencies:
     - name: cockroachdb
       repository: https://charts.cockroachdb.com/
@@ -18,7 +18,7 @@ entries:
   homer-startpage:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-28T07:02:17.403007+02:00"
+    created: "2023-09-01T08:22:08.605124+02:00"
     description: A Helm chart for SCS startpage
     digest: 840dea3f6c1fd29dd72079d08937d3a5c7a9aa71eb2b0ad35907d629a664f35a
     name: homer-startpage
@@ -29,7 +29,7 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-28T07:02:17.403536+02:00"
+    created: "2023-09-01T08:22:08.605416+02:00"
     description: A Helm chart for Jellyfin
     digest: a8a84bd7b7078bcbaafd23974aa2bb25dbd79a32833e473953126f09de230966
     name: jellyfin
@@ -40,7 +40,7 @@ entries:
   nginx-welcome:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-28T07:02:17.403873+02:00"
+    created: "2023-09-01T08:22:08.605612+02:00"
     description: A Helm chart to test external accesibility
     digest: 7146bab6d223dde3504e24616e31dd000f2fefec2e82065727fcfc6e8fd728f5
     name: nginx-welcome
@@ -51,9 +51,9 @@ entries:
   openvpn-as:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-28T07:02:17.40418+02:00"
+    created: "2023-09-01T08:22:08.605854+02:00"
     description: A Helm chart for OpenVPN access server
-    digest: a26ecf2017c913cda1fbf2134254b1b23f1b1358363ec40f31ac30904b96c773
+    digest: dd9e30b7d2e59e31d5203cca646d72be3d4a25b9ae0eb90ea86a6b76397fdc3d
     name: openvpn-as
     type: application
     urls:
@@ -62,7 +62,7 @@ entries:
   uptime-kuma:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-08-28T07:02:17.404716+02:00"
+    created: "2023-09-01T08:22:08.606307+02:00"
     description: A Helm chart for running uptime-kuma in Kubernetes
     digest: 9d4505f6efd4cff6ccfb9093cd8e8088697a0ec2b390bf6a7eee34627470213c
     name: uptime-kuma
@@ -70,4 +70,4 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/uptime-kuma-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-28T07:02:17.39987+02:00"
+generated: "2023-09-01T08:22:08.602024+02:00"

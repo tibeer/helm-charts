@@ -4,12 +4,28 @@ metadata:
   name: {{ include "openvpn-as.fullname" . }}
   labels:
     {{- include "openvpn-as.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: 943
       targetPort: http
       protocol: TCP
       name: http
+    {{- range .Values.service.tcp_ports }}
+    - port: {{ . | int }}
+      targetPort: vpntcp
+      protocol: TCP
+      name: vpntcp-{{ . | toString }}
+    {{- end}}
+    {{- range .Values.service.udp_ports }}
+    - port: {{ . | int }}
+      targetPort: vpnudp
+      protocol: UDP
+      name: vpnudp-{{ . | toString }}
+    {{- end}}
   selector:
     {{- include "openvpn-as.selectorLabels" . | nindent 4 }}

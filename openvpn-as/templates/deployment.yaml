@@ -34,23 +34,15 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 943
-              hostPort: 943
+            - containerPort: 1194
+              name: vpntcp
               protocol: TCP
-            - containerPort: 9443
-              hostPort: 9443
+            - containerPort: 943
+              name: http
               protocol: TCP
             - containerPort: 1194
-              hostPort: 1194
+              name: vpnudp
               protocol: UDP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 9443
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 9443
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
