@@ -3,7 +3,7 @@ entries:
   fastapi-cockroachdb-mock:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-09-15T06:12:50.22131+02:00"
+    created: "2023-12-28T15:34:24.064114+01:00"
     dependencies:
     - name: cockroachdb
       repository: https://charts.cockroachdb.com/
@@ -18,7 +18,7 @@ entries:
   hedgedoc:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-09-15T06:12:50.224777+02:00"
+    created: "2023-12-28T15:34:24.067245+01:00"
     dependencies:
     - name: mariadb
       repository: https://charts.bitnami.com/bitnami
@@ -33,7 +33,7 @@ entries:
   homer-startpage:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-09-15T06:12:50.225285+02:00"
+    created: "2023-12-28T15:34:24.067787+01:00"
     description: A Helm chart for SCS startpage
     digest: 19605595acaa205770905b9259c2f3562e1b0dab9c77cb3bb83f634e302a9213
     name: homer-startpage
@@ -44,7 +44,7 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-09-15T06:12:50.225817+02:00"
+    created: "2023-12-28T15:34:24.068075+01:00"
     description: A Helm chart for Jellyfin
     digest: a8a84bd7b7078bcbaafd23974aa2bb25dbd79a32833e473953126f09de230966
     name: jellyfin
@@ -55,7 +55,7 @@ entries:
   nginx-welcome:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-09-15T06:12:50.226231+02:00"
+    created: "2023-12-28T15:34:24.068296+01:00"
     description: A Helm chart to test external accesibility
     digest: 7146bab6d223dde3504e24616e31dd000f2fefec2e82065727fcfc6e8fd728f5
     name: nginx-welcome
@@ -63,10 +63,21 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/nginx-welcome-1.0.0.tgz
     version: 1.0.0
+  ntfy:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-12-28T15:34:24.06953+01:00"
+    description: A Helm chart for ntfy.sh
+    digest: cb450799426ff4bd9a7030d80d7c00b3638e5c97cf3a1f89c265166e024d8d31
+    name: ntfy
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/ntfy-1.0.0.tgz
+    version: 1.0.0
   openvpn-as:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-09-15T06:12:50.226558+02:00"
+    created: "2023-12-28T15:34:24.069973+01:00"
     description: A Helm chart for OpenVPN access server
     digest: dd9e30b7d2e59e31d5203cca646d72be3d4a25b9ae0eb90ea86a6b76397fdc3d
     name: openvpn-as
@@ -77,7 +88,7 @@ entries:
   uptime-kuma:
   - apiVersion: v2
     appVersion: latest
-    created: "2023-09-15T06:12:50.226892+02:00"
+    created: "2023-12-28T15:34:24.070416+01:00"
     description: A Helm chart for running uptime-kuma in Kubernetes
     digest: 9d4505f6efd4cff6ccfb9093cd8e8088697a0ec2b390bf6a7eee34627470213c
     name: uptime-kuma
@@ -85,4 +96,4 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/uptime-kuma-1.0.0.tgz
     version: 1.0.0
-generated: "2023-09-15T06:12:50.219095+02:00"
+generated: "2023-12-28T15:34:24.061632+01:00"
