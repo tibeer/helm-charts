@@ -47,6 +47,23 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: uptime-kuma-config
+              mountPath: /app/config
+            {{- if .Values.persistence.enabled }}
+            - name: uptime-kuma-data
+              mountPath: /app/data
+            {{- end }}
+      volumes:
+        - name: uptime-kuma-config
+          emptyDir: {}
+        - name: uptime-kuma-data
+          {{- if .Values.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (include "uptime-kuma.fullname" .) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
