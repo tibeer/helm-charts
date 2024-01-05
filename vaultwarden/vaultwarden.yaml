@@ -1,0 +1,14 @@
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: "staging"
+  hosts:
+    - host: vaultwarden.oracle.tibeer.de
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: vaultwarden-tls
+      hosts:
+        - vaultwarden.oracle.tibeer.de
