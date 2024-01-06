@@ -3,7 +3,7 @@ entries:
   fastapi-cockroachdb-mock:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.362595+01:00"
+    created: "2024-01-06T12:06:39.321743+01:00"
     dependencies:
     - name: cockroachdb
       repository: https://charts.cockroachdb.com/
@@ -18,7 +18,7 @@ entries:
   hedgedoc:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-01-05T16:38:52.365486+01:00"
+    created: "2024-01-06T12:06:39.324631+01:00"
     dependencies:
     - name: mariadb
       repository: https://charts.bitnami.com/bitnami
@@ -33,7 +33,7 @@ entries:
   homer-startpage:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.365851+01:00"
+    created: "2024-01-06T12:06:39.324999+01:00"
     description: A Helm chart for SCS startpage
     digest: 19605595acaa205770905b9259c2f3562e1b0dab9c77cb3bb83f634e302a9213
     name: homer-startpage
@@ -41,10 +41,26 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/homer-startpage-1.0.0.tgz
     version: 1.0.0
+  invidious:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-01-06T12:06:39.32865+01:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 13.2.*
+    description: A Helm chart for invidious
+    digest: 4cdc5ced021d3670d4495a28198a7aa3762e6409b6978fde322e24a89af5adb9
+    name: invidious
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/invidious-1.0.0.tgz
+    version: 1.0.0
   jellyfin:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.366101+01:00"
+    created: "2024-01-06T12:06:39.328916+01:00"
     description: A Helm chart for Jellyfin
     digest: a8a84bd7b7078bcbaafd23974aa2bb25dbd79a32833e473953126f09de230966
     name: jellyfin
@@ -55,7 +71,7 @@ entries:
   nginx-welcome:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.366247+01:00"
+    created: "2024-01-06T12:06:39.329064+01:00"
     description: A Helm chart to test external accesibility
     digest: 7146bab6d223dde3504e24616e31dd000f2fefec2e82065727fcfc6e8fd728f5
     name: nginx-welcome
@@ -66,7 +82,7 @@ entries:
   ntfy:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.366508+01:00"
+    created: "2024-01-06T12:06:39.329317+01:00"
     description: A Helm chart for ntfy.sh
     digest: cb450799426ff4bd9a7030d80d7c00b3638e5c97cf3a1f89c265166e024d8d31
     name: ntfy
@@ -77,7 +93,7 @@ entries:
   openvpn-as:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.366732+01:00"
+    created: "2024-01-06T12:06:39.329546+01:00"
     description: A Helm chart for OpenVPN access server
     digest: dd9e30b7d2e59e31d5203cca646d72be3d4a25b9ae0eb90ea86a6b76397fdc3d
     name: openvpn-as
@@ -88,7 +104,7 @@ entries:
   uptime-kuma:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.366989+01:00"
+    created: "2024-01-06T12:06:39.329801+01:00"
     description: A Helm chart for running uptime-kuma in Kubernetes
     digest: 68c8da0ad2e33d5e7d72aa854b660422b104edcc09459166f858669f6ebba544
     name: uptime-kuma
@@ -99,7 +115,7 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-01-05T16:38:52.367238+01:00"
+    created: "2024-01-06T12:06:39.330066+01:00"
     description: A Helm chart for vaultwarden server
     digest: 18720954cf17bb6eacd2fdf5c271afd0d5cae057e87c840bca8147db17d52781
     name: vaultwarden
@@ -107,4 +123,4 @@ entries:
     urls:
     - https://tibeer.github.io/helm-charts/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-01-05T16:38:52.360778+01:00"
+generated: "2024-01-06T12:06:39.3201+01:00"
