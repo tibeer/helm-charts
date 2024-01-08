@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "olivetin.fullname" . }}
+  labels:
+    {{- include "olivetin.labels" . | nindent 4 }}
+data:
+  config.yaml: |-
+    {{ .Values.olivetinConfig | toYaml | nindent 4 }}
