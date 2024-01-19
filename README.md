@@ -1,6 +1,7 @@
 # Helm Charts
 
 This repository contains some helm charts.
+If you see this README from the package view, you will only see one helm-chart at a time.
 
 | Chart | Description |
 |-------|-------------|
@@ -11,14 +12,15 @@ This repository contains some helm charts.
 
 ## Usage
 
+`helm repo add` and `helm repo update` is no longer required, as you can install directly from the (new) oci url:
+
 ```sh
-helm repo add tibeer https://tibeer.github.io/helm-charts/  # the trailing backslack is important
-helm repo update tibeer
+helm install homer oci://ghcr.io/tibeer/homer-startpage --wait
 ```
 
-## Update this
+If you want to change the values, fetch and alter them first, than use them:
 
 ```sh
-helm package <your-chart-folder>
-helm repo index --url https://tibeer.github.io/helm-charts/ .
+helm show values oci://ghcr.io/tibeer/homer-startpage > values.yaml
+helm install homer oci://ghcr.io/tibeer/homer-startpage --values values.yaml --wait
 ```

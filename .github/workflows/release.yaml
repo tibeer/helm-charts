@@ -1,0 +1,60 @@
+---
+name: Release
+
+"on":
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  gather:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.value }}
+    steps:
+      - name: Clone current repository
+        uses: actions/checkout@v3
+
+      - name: Gather all folders
+        id: matrix
+        run: |
+          charts="value=["
+          for chart in $(ls -1 | grep -v -e LICENSE -e README.md); do
+            tag="$(cat ${chart}/Chart.yaml | grep ^version | cut -d ' ' -f 2)"
+            charts="${charts}{\"chart\": \"${chart}\", \"tag\": \"${tag}\"}, "
+          done
+          charts="${charts::-2}]"
+          echo "${charts}" >> $GITHUB_OUTPUT
+        
+      - name: Debug
+        run: |
+          echo "${{ steps.matrix.outputs.value }}"  
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - gather
+    strategy:
+      matrix:
+        value: ${{ fromJSON(needs.gather.outputs.matrix) }}
+    steps:
+      - name: Debug
+        run: |
+          echo "${{ matrix.value['chart'] }}"
+          echo "${{ matrix.value['tag'] }}"
+ 
+      - name: Clone current repository
+        uses: actions/checkout@v3
+
+      - name: Chart | Push
+        uses: appany/helm-oci-chart-releaser@v0.3.0
+        with:
+          name: "${{ matrix.value['chart'] }}"
+          path: "./${{ matrix.value['chart'] }}"
+          tag: "${{ matrix.value['tag'] }}"
+          repository: tibeer
+          registry: ghcr.io
+          registry_username: ${{ github.repository_owner }}
+          registry_password: ${{ github.token }}
+          #update_dependencies: 'true'
