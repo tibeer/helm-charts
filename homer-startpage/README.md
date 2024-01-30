@@ -7,7 +7,7 @@ Startpage with [homer](https://github.com/bastienwirtz/homer).
 ```sh
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx 
 helm install ingress-nginx ingress-nginx/ingress-nginx
-helm install homer tibeer/homer-startpage --set ingress.host="1.2.3.4.nip.io"
+helm install homer oci://ghcr.io/tibeer/homer-startpage --set ingress.host="1.2.3.4.nip.io"
 ```
 
 ## Manual docker deployment

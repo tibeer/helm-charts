@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "lldap.fullname" . }}-web
+  labels:
+    {{- include "lldap.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.web.type }}
+  ports:
+    - port: {{ .Values.service.web.port }}
+      targetPort: web
+      protocol: TCP
+      name: web
+  selector:
+    {{- include "lldap.selectorLabels" . | nindent 4 }}

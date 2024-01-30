@@ -7,7 +7,7 @@ Used for testing external cluster access.
 ```sh
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx 
 helm install ingress-nginx ingress-nginx/ingress-nginx
-helm install foo tibeer/nginx-welcome --set ingress.host="test.tibeer.de" 
+helm install foo oci://ghcr.io/tibeer/nginx-welcome --set ingress.host="test.tibeer.de" 
 ```
 
 You should now be able to access your website via the given host URL and should see the default nginx website:
