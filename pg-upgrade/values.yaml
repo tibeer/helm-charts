@@ -1,0 +1,80 @@
+# Default values for pg-upgrade.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+imagePullSecrets: []
+image:
+  repository: ghcr.io/tibeer/pgupgrade
+  pullPolicy: IfNotPresent
+  tag: "15to16"
+
+command:
+  - /bin/bash
+args:
+  - -c
+  - |
+    usermod -u 1001 postgres  # change the user id match the mounted volume
+    su postgres -c "mkdir /tmp/temporary_migration_data"
+    cd /tmp/temporary_migration_data
+    su postgres -c "${PGBINNEW}/initdb -D /tmp/temporary_migration_data > /dev/null"
+    cp /tmp/temporary_migration_data/postgresql.conf /data && chown postgres /data/postgresql.conf  # needed to have a clean db shutdown
+    cp /tmp/temporary_migration_data/pg_hba.conf /data && chown postgres /data/pg_hba.conf  # needed to have a clean db shutdown
+    su postgres -c "${PGBINOLD}/pg_ctl start -w -D /data"  # needed to have a clean db shutdown
+    su postgres -c "${PGBINOLD}/pg_ctl stop -w -D /data"  # perform a clean shutdown
+    su postgres -c "${PGBINNEW}/pg_upgrade --version"
+    su postgres -c "${PGBINNEW}/pg_upgrade"
+    cp -Rf /tmp/temporary_migration_data/* /data
+    rm /data/postgresql.conf  # remove config files again
+    rm /data/pg_hba.conf  # remove config files again
+env:
+  PGBINOLD: /usr/lib/postgresql/15/bin
+  PGBINNEW: /usr/lib/postgresql/16/bin
+  PGDATAOLD: /data
+  PGDATANEW: /tmp/temporary_migration_data
+
+# Volumes to mount inside the container
+volumeMounts:
+  - name: data
+    mountPath: /data
+    subPath: data
+volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: data-foobar-postgresql-0
+
+#========================================#
+
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
