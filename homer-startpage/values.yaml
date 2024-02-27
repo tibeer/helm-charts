@@ -12,10 +12,11 @@ ingress:
   enabled: true
   className: "nginx"
   annotations: {}
-  host: 1.2.3.4.nip.io
-  paths:
-    - path: /
-      pathType: ImplementationSpecific
+  hosts:
+    - host: 1.2.3.4.nip.io
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
