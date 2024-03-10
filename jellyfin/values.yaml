@@ -6,9 +6,9 @@ replicaCount: 1
 
 image:
   repository: jellyfin/jellyfin
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -17,13 +17,19 @@ fullnameOverride: ""
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+env:
+  TZ: UTC
+
 podAnnotations: {}
+podLabels: {}
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -41,11 +47,11 @@ service:
   port: 8096
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   annotations: {}
   hosts:
-    - host: foo.bar
+    - host: chart-example.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -66,6 +72,15 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
 autoscaling:
   enabled: false
   minReplicas: 1
@@ -73,8 +88,39 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+persistence:
+  config:
+    enabled: true
+  cache:
+    enabled: true
+    # existingClaim:
+    accessMode: ReadWriteOnce
+    # annotations:
+    size: 1Gi
+    # storageClass:
+  media:
+    enabled: true
+    # existingClaim:
+    accessMode: ReadWriteOnce
+    # annotations:
+    size: 1Gi
+    # storageClass:

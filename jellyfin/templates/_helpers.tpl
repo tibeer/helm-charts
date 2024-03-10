@@ -60,3 +60,13 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+PVC names
+*/}}
+{{- define "jellyfin.pvcCacheName" -}}
+{{- printf "%s-cache" (include "jellyfin.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- define "jellyfin.pvcMediaName" -}}
+{{- printf "%s-media" (include "jellyfin.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
