@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "scrumlr.fullname" . }}-backend
+  labels:
+    {{- include "scrumlr.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.backend.type }}
+  ports:
+    - port: {{ .Values.service.backend.port }}
+      targetPort: backend
+      protocol: TCP
+      name: backend
+  selector:
+    {{- include "scrumlr.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "scrumlr.fullname" . }}-backend
+  labels:
+    {{- include "scrumlr.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount.backend }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "scrumlr.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations.backend }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "scrumlr.labels" . | nindent 8 }}
+        {{- with .Values.podLabels.backend }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "scrumlr.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext.backend | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext.backend | nindent 12 }}
+          image: "{{ .Values.image.backend.repository }}:{{ .Values.image.backend.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.backend.pullPolicy }}
+          ports:
+            - name: backend
+              containerPort: {{ .Values.service.backend.port }}
+              protocol: TCP
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe.backend | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe.backend | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources.backend | nindent 12 }}
+          {{- with .Values.command.backend }}
+          command:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.args.backend }}
+          args:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          env:
+          {{- range $key, $value := .Values.env.backend }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote }}
+          {{- end }}
+          {{- with .Values.volumeMounts.backend }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.volumes.backend }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector.backend }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity.backend }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations.backend }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
