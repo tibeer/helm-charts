@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "quickmockup-chart.fullname" . }}-test-connection"
+  labels:
+    {{- include "quickmockup-chart.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "quickmockup-chart.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
