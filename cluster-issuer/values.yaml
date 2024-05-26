@@ -1,0 +1,5 @@
+---
+nameOverride: ""
+fullnameOverride: ""
+ingressClassName: "nginx"
+email: foo@bar.com
