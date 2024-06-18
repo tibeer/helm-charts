@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "openvpn-as.fullname" . }}
+  name: {{ include "openvpn-as.fullname" . }}-vpn
   labels:
     {{- include "openvpn-as.labels" . | nindent 4 }}
   {{- with .Values.service.annotations }}
@@ -9,12 +9,8 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.service.type_vpn }}
   ports:
-    - port: 943
-      targetPort: http
-      protocol: TCP
-      name: http
     {{- range .Values.service.tcp_ports }}
     - port: {{ . | int }}
       targetPort: vpntcp
