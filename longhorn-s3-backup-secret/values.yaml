@@ -1,0 +1,8 @@
+---
+nameOverride: ""
+fullnameOverride: ""
+
+access_key: "1234567890"
+secret_key: "abcdefghijklmnopqrstuvwxyz"
+region: "garage"
+endpoint: "http://your.server.com:3900"
