@@ -20,7 +20,7 @@ jobs:
         id: matrix
         run: |
           charts="value=["
-          for chart in $(ls -1 | grep -v -e LICENSE -e README.md); do
+          for chart in $(ls -1 | grep -v -e LICENSE -e README.md -e renovate.json5); do
             tag="$(cat ${chart}/Chart.yaml | grep ^version | cut -d ' ' -f 2)"
             charts="${charts}{\"chart\": \"${chart}\", \"tag\": \"${tag}\"}, "
           done
