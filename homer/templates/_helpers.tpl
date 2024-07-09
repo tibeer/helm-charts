@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "homer-startpage.name" -}}
+{{- define "homer.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "homer-startpage.fullname" -}}
+{{- define "homer.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "homer-startpage.chart" -}}
+{{- define "homer.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "homer-startpage.labels" -}}
-helm.sh/chart: {{ include "homer-startpage.chart" . }}
-{{ include "homer-startpage.selectorLabels" . }}
+{{- define "homer.labels" -}}
+helm.sh/chart: {{ include "homer.chart" . }}
+{{ include "homer.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,7 +45,18 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "homer-startpage.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "homer-startpage.name" . }}
+{{- define "homer.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "homer.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "homer.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "homer.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
 {{- end }}
