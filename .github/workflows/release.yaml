@@ -14,7 +14,7 @@ jobs:
       matrix: ${{ steps.matrix.outputs.value }}
     steps:
       - name: Clone current repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Gather all folders
         id: matrix
@@ -45,10 +45,10 @@ jobs:
           echo "${{ matrix.value['tag'] }}"
  
       - name: Clone current repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Chart | Push
-        uses: appany/helm-oci-chart-releaser@v0.3.0
+        uses: appany/helm-oci-chart-releaser@v0.4.2
         with:
           name: "${{ matrix.value['chart'] }}"
           path: "./${{ matrix.value['chart'] }}"
