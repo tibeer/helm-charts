@@ -8,7 +8,7 @@ image:
   repository: quay.io/invidious/invidious
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest-arm64"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
