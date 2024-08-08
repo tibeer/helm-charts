@@ -35,7 +35,6 @@ Common labels
 */}}
 {{- define "certificate.labels" -}}
 helm.sh/chart: {{ include "certificate.chart" . }}
-{{ include "certificate.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}

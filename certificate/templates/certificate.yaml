@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "certificate.labels" . | nindent 4 }}
 spec:
-  dnsNames: |-
+  dnsNames:
     {{- range .Values.dnsNames }}
     - {{ . | quote }}
     {{- end }}
@@ -14,7 +14,7 @@ spec:
     kind: "{{ .Values.issuerType }}"
     name: "{{ .Values.issuerName }}"
   secretName: {{ include "certificate.fullname" . }}
-  usages: |-
+  usages:
     {{- range .Values.usages }}
     - {{ . | quote }}
     {{- end }}
