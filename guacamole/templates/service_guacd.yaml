@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "guacd.fullname" . }}
+  labels:
+    {{- include "guacd.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service_guacd.type }}
+  ports:
+    - port: {{ .Values.service_guacd.port }}
+      targetPort: guacd
+      protocol: TCP
+      name: guacd
+  selector:
+    {{- include "guacd.selectorLabels" . | nindent 4 }}
