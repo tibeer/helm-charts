@@ -171,7 +171,7 @@ postgresql:
         command:
           - sh
           - -c
-          - sleep 60; /opt/guacamole/bin/initdb.sh --postgresql > /initdb/initdb.sql
+          - /opt/guacamole/bin/initdb.sh --postgresql > /initdb/initdb.sql
         volumeMounts:
           - name: initdb
             mountPath: /initdb
