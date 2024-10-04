@@ -162,7 +162,7 @@ postgresql:
       limits: null
       requests: null
     persistence:
-      enabled: false
+      enabled: true
       size: 1Gi
     initContainers:
       - name: guacamole-initdb
