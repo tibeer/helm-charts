@@ -38,3 +38,11 @@ helm.sh/chart: {{ include "cert-manager-crds.chart" . }}
 {{ include "cert-manager-crds.selectorLabels" . }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
+
+{{/*
+Selector labels
+*/}}
+{{- define "cert-manager-crds.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "cert-manager-crds.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
