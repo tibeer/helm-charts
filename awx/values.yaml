@@ -1,0 +1,29 @@
+# Default values for awx.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This is to override the chart name.
+nameOverride: ""
+fullnameOverride: ""
+
+awx:
+  username: admin
+  email: admin@awx.com
+  password: "Super$ecr3t"
+
+ingress:
+  className: nginx
+  type: ingress
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      secretName: chart-example-tls
+  path: /
+  pathType: ImplementationSpecific
+
+serviceType: ClusterIP
+
+postgres:
+  dataVolumeInit: true
+  storage:
+    size: 1Gi

@@ -1,0 +1,69 @@
+---
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  annotations:
+    helm.sh/resource-policy: keep
+  labels:
+    {{- include "awx.labels" . | nindent 4 }}
+  name: {{ include "awx.fullname" . }}
+spec:
+  # admin
+  admin_user: {{ .Values.awx.username }}
+  admin_email: {{ .Values.awx.email }}
+  admin_password_secret: {{ include "awx.fullname" . }}
+  
+  # ingress
+  ingress_class_name: {{ .Values.ingress.className }}
+  ingress_hosts:
+    {{- range .Values.ingress.hosts }}
+    - hostname: {{ .host }}
+      tls_secret: {{ .secretName }}
+    {{- end }}
+  ingress_path: {{ .Values.ingress.path }}
+  ingress_path_type: {{ .Values.ingress.pathType }}
+  ingress_type: {{ .Values.ingress.type }}
+
+  {{- with .Values.ingress.annotations }}
+  ingress_annotations: |
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  
+  # service
+  {{- with (index .Values.ingress.hosts 0) }}
+  route_tls_secret: {{ .secretName }}
+  {{- end }}
+  service_type: {{ .Values.serviceType }}
+  
+  # apps
+  task_resource_requirements:
+    requests: {}
+    limits: {}
+  web_resource_requirements:
+    requests: {}
+    limits: {}
+  ee_resource_requirements:
+    requests: {}
+    limits: {}
+  redis_resource_requirements:
+    requests: {}
+    limits: {}
+  rsyslog_resource_requirements:
+    requests: {}
+    limits: {}
+  init_container_resource_requirements:
+    requests: {}
+    limits: {}
+  
+  # postgres
+  postgres_data_volume_init: {{ .Values.postgres.dataVolumeInit }}
+  #postgres_init_container_commands: |
+  #  chown 26:0 /var/lib/pgsql/data
+  #  chmod 700 /var/lib/pgsql/data
+  postgres_resource_requirements:
+    requests: {}
+    limits: {}
+  postgres_storage_requirements:
+    requests:
+      storage: {{ .Values.postgres.storage.size }}
+    limits: {}
