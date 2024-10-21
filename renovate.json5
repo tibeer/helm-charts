@@ -3,5 +3,18 @@
   "dependencyDashboard": true,
   "reviewers": [
     "tibeer"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update chart appVersion according to docker image references",
+      "datasourceTemplate": "docker",
+      "fileMatch": [
+        "(^|/|\\.)Chart\\.yaml$"
+      ],
+      "matchStrings": [
+        "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?'?(?<currentValue>[\\w+\\.\\-]*)'"
+      ]
+    }
   ]
 }
