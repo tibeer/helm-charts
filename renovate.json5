@@ -3,5 +3,18 @@
   "dependencyDashboard": true,
   "reviewers": [
     "tibeer"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update vaultwarden docker image references",
+      "fileMatch": ["^vaultwarden\\/Chart\\.yaml$"],
+      "matchStrings": [
+        "appVersion: '(?<currentValue>.*?)'\\s+",
+        "version: '(?<currentValue>.*?)'\\s+"
+      ],
+      "depNameTemplate": "vaultwarden/server",
+      "datasourceTemplate": "docker"
+    }
   ]
 }
