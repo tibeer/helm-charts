@@ -112,3 +112,5 @@ persistence:
   size: 1Gi
   # storageClass:
   accessMode: ReadWriteOnce
+
+env: {}
