@@ -1,0 +1,44 @@
+{{- $fullName := include "scrumlr.fullnameBackend" . -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "scrumlr.labels" . | nindent 4 }}
+  annotations:
+    cert-manager.io/cluster-issuer: "staging"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://scrumlr.beta.tibeer.de, http://scrumlr.beta.tibeer.de, https://scrumlr.beta.tibeer.de/api, http://scrumlr.beta.tibeer.de/api, https://scrumlr.beta.tibeer.de:8080, http://scrumlr.beta.tibeer.de:8080, https://scrumlr.beta.tibeer.de:8080/api, http://scrumlr.beta.tibeer.de:8080/api"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS, DELETE"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin"
+spec:
+  ingressClassName: "nginx"
+  tls:
+    - hosts:
+        - "scrumlr.beta.tibeer.de"
+      secretName: scrumlr-tls
+  rules:
+    - host: "scrumlr.beta.tibeer.de"
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: scrumlr-backend
+                port:
+                  number: 8080
+          - path: /api/user
+            pathType: Prefix
+            backend:
+              service:
+                name: scrumlr-backend
+                port:
+                  number: 8080
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: scrumlr-frontend
+                port:
+                  number: 8080

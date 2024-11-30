@@ -1,5 +1,5 @@
 {{- if .Values.ingress.frontend.enabled -}}
-{{- $fullName := include "scrumlr.fullname" . -}}
+{{- $fullName := include "scrumlr.fullnameFrontend" . -}}
 {{- $svcPort := .Values.service.frontend.port -}}
 {{- if and .Values.ingress.frontend.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
   {{- if not (hasKey .Values.ingress.frontend.annotations "kubernetes.io/ingress.class") }}
@@ -15,7 +15,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}-frontend
+  name: {{ $fullName }}
   labels:
     {{- include "scrumlr.labels" . | nindent 4 }}
   {{- with .Values.ingress.frontend.annotations }}
