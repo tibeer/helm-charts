@@ -26,6 +26,6 @@ appVersion: '2024.11.10-9892604-arm64'
 
 dependencies:
   - name: postgresql
-    version: 16.3.0
+    version: 16.3.1
     repository: oci://registry-1.docker.io/bitnamicharts
     condition: postgresql.enabled
