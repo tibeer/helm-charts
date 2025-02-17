@@ -26,5 +26,5 @@ appVersion: '1.10.2'
 
 dependencies:
   - name: mariadb
-    version: 20.2.2
+    version: 20.2.4
     repository: https://charts.bitnami.com/bitnami
