@@ -29,4 +29,5 @@ for chart_file in $(find . -name Chart.yaml); do
 
     echo "Bumping version from $version to $major.$minor.$patch"
     sed -i "s/^version:.*/version: ${major}.${minor}.${patch}/g" "${chart_file}"
+    echo "${2}" >> "${chart_file}"
 done
