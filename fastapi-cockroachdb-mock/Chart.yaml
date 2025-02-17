@@ -2,7 +2,7 @@ apiVersion: v2
 name: fastapi-cockroachdb-mock
 description: A Helm chart to test a workload 
 type: application
-version: 2.0.0
+version: 1.0.0
 appVersion: "latest"  # nginx version
 dependencies:
   - name: cockroachdb
