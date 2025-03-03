@@ -1,6 +1,6 @@
 dependencies:
 - name: cockroachdb
   repository: https://charts.cockroachdb.com/
-  version: 15.0.8
-digest: sha256:36b5f05f583105ef21d3185b0df19608f756c6c7aea434bcfb930db87030b854
-generated: "2025-02-19T15:15:29.487584321Z"
+  version: 16.0.0
+digest: sha256:f0e0a6aaaf2d4ca83aba94f53f2bf88a5ba134aa231ffc076a7c61e9fee2ea86
+generated: "2025-03-03T19:25:26.70309859Z"
