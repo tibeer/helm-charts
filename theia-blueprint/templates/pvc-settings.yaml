@@ -1,0 +1,28 @@
+{{- if and .Values.persistence.settings.enabled (not .Values.persistence.settings.existingClaim) -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "theia-blueprint.volumeNameData" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "theia-blueprint.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ include "theia-blueprint.chart" . }}
+  annotations:
+  {{- range $key, $value := .Values.persistence.settings.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+spec:
+  accessModes:
+  - {{ .Values.persistence.settings.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.settings.size | quote }}
+{{- if .Values.persistence.settings.storageClass }}
+{{- if (eq "-" .Values.persistence.settings.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.settings.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}
