@@ -7,7 +7,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: ghrc.io/eclipse-theia/theia-ide/theia-ide
+  repository: ghcr.io/eclipse-theia/theia-ide/theia-ide
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
