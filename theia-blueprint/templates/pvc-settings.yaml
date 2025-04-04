@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "theia-blueprint.volumeNameData" . }}
+  name: {{ include "theia-blueprint.volumeNameSettings" . }}
   labels:
     app.kubernetes.io/name: {{ include "theia-blueprint.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
