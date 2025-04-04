@@ -1,5 +1,5 @@
 apiVersion: v2
-name: theia-blueprint
+name: theia-ide
 description: A Helm chart for eclipse theia blueprint
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -22,6 +22,6 @@ version: 1.0.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 # renovate: image=ghcr.io/eclipse-theia/theia-ide/theia-ide
-appVersion: "1.60.0"
+appVersion: "1.59.1"
 
 icon: https://avatars.githubusercontent.com/u/54183333?v=4

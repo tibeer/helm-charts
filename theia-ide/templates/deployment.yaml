@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "theia-blueprint.fullname" . }}
+  name: {{ include "theia-ide.fullname" . }}
   labels:
-    {{- include "theia-blueprint.labels" . | nindent 4 }}
+    {{- include "theia-ide.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "theia-blueprint.selectorLabels" . | nindent 6 }}
+      {{- include "theia-ide.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "theia-blueprint.labels" . | nindent 8 }}
+        {{- include "theia-ide.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "theia-blueprint.serviceAccountName" . }}
+      serviceAccountName: {{ include "theia-ide.serviceAccountName" . }}
       {{- with .Values.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
@@ -57,25 +57,25 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           volumeMounts:
-            - name: theia-blueprint-data
+            - name: theia-ide-data
               mountPath: /home/project
-            - name: theia-blueprint-settings
+            - name: theia-ide-settings
               mountPath: /home/theia/.theia-ide
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
       volumes:
-        - name: theia-blueprint-data
+        - name: theia-ide-data
           {{- if .Values.persistence.data.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.data.existingClaim | default (include "theia-blueprint.volumeNameData" .) }}
+            claimName: {{ .Values.persistence.data.existingClaim | default (include "theia-ide.volumeNameData" .) }}
           {{- else }}
           emptyDir: {}
           {{- end }}
-        - name: theia-blueprint-settings
+        - name: theia-ide-settings
           {{- if .Values.persistence.settings.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.settings.existingClaim | default (include "theia-blueprint.volumeNameSettings" .) }}
+            claimName: {{ .Values.persistence.settings.existingClaim | default (include "theia-ide.volumeNameSettings" .) }}
           {{- else }}
           emptyDir: {}
           {{- end }}
