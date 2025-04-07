@@ -44,6 +44,7 @@ podSecurityContext: {}
 securityContext:
   runAsUser: 101  # theia
   runAsGroup: 101  # theia
+  fsGroup: 101  # theia
   # capabilities:
   #   drop:
   #   - ALL
