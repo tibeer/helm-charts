@@ -38,13 +38,10 @@ podAnnotations: {}
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 podLabels: {}
 
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext:
-  runAsUser: 101  # theia
-  runAsGroup: 101  # theia
+podSecurityContext:
   fsGroup: 101  # theia
+
+securityContext: {}
   # capabilities:
   #   drop:
   #   - ALL
