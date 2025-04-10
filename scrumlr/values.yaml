@@ -9,12 +9,12 @@ replicaCount:
 image:
   backend:
     repository: ghcr.io/inovex/scrumlr.io/scrumlr-server
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
   frontend:
     repository: ghcr.io/inovex/scrumlr.io/scrumlr-frontend
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
 
