@@ -4,7 +4,6 @@ metadata:
   name: staging
 spec:
   acme:
-    email: {{ .Values.email }}
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: staging-key
