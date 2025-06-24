@@ -166,7 +166,7 @@ postgresql:
       size: 1Gi
     initContainers:
       - name: guacamole-initdb
-        image: docker.io/guacamole/guacamole:1.5.5
+        image: docker.io/guacamole/guacamole:1.6.0
         imagePullPolicy: IfNotPresent
         command:
           - sh
