@@ -1,0 +1,328 @@
+apiVersion: v1
+entries:
+  awx:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-19T15:55:49.261793298Z"
+    description: A Helm chart for the AWX CRD used by the AWX operator
+    digest: 46b2a31d8702ffeefcdbdeae533b8e47175b04ff6f8ecabb4018751e1f26bdc0
+    name: awx
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/awx-1.0.0.tgz
+    version: 1.0.0
+  basic-auth:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-19T15:55:49.26196001Z"
+    description: A Helm chart for Kubernetes to deploy a basic auth secret
+    digest: aa9da696bb4ed46ac67a678b95137d9140a89633a66e64d1e6fea8581f404634
+    name: basic-auth
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/basic-auth-1.0.0.tgz
+    version: 1.0.0
+  cert-manager-crds:
+  - apiVersion: v2
+    appVersion: 1.15.3
+    created: "2025-07-19T15:55:49.264009173Z"
+    description: A Helm chart for cert-manager CRDs
+    digest: 14b84a0cf4ac12c45269e7bf8731cce99357d9a8d5fc558725cc1bec9f555107
+    name: cert-manager-crds
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/cert-manager-crds-1.0.0.tgz
+    version: 1.0.0
+  certificate:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-19T15:55:49.264458836Z"
+    description: A Helm chart for a cert-manager certificate
+    digest: 9955201200575535b1eea1ecdc3775b8cb78233da2d7ade83c472d9aa0ed0029
+    name: certificate
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/certificate-1.0.0.tgz
+    version: 1.0.0
+  cluster-issuer:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-19T15:55:49.26461556Z"
+    description: A Helm chart for Kubernetes to deploy a cluster-issuer
+    digest: d8a89ccb6d15841ec3896c067426bccb193d53a631a9e7427bd03522687e882e
+    name: cluster-issuer
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/cluster-issuer-2.0.0.tgz
+    version: 2.0.0
+  code-server:
+  - apiVersion: v2
+    appVersion: 4.102.1
+    created: "2025-07-19T15:55:49.265073489Z"
+    description: A Helm chart for code-server
+    digest: 39a4fe32cb6420981a46442ed2d213331cdd0ebab242685e82b281734ba3a7e6
+    name: code-server
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/code-server-1.7.1.tgz
+    version: 1.7.1
+  fastapi-cockroachdb-mock:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2025-07-19T15:55:49.26755927Z"
+    dependencies:
+    - name: cockroachdb
+      repository: https://charts.cockroachdb.com/
+      version: 17.0.5
+    description: A Helm chart to test a workload
+    digest: 15fdcad206095624a46dec8a26a0c7173ed88374c6770ba23d116458b001922a
+    name: fastapi-cockroachdb-mock
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/fastapi-cockroachdb-mock-1.0.0.tgz
+    version: 1.0.0
+  glance:
+  - apiVersion: v2
+    appVersion: v0.8.4
+    created: "2025-07-19T15:55:49.267963157Z"
+    description: A Helm chart for glance
+    digest: e7b645a9b44b5b83efa8ca53d06cfef3f8c30ef30f63d0ecdb1e7e655536d4b2
+    name: glance
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/glance-1.1.4.tgz
+    version: 1.1.4
+  gotify:
+  - apiVersion: v2
+    appVersion: 2.6.3
+    created: "2025-07-19T15:55:49.268423511Z"
+    description: A Helm chart for gotify, inspired by nicholaswilde
+    digest: 20b222ac31b82c1c3d74c3527b224038f894bd52472e758fd0c0f8b505907674
+    name: gotify
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/gotify-1.0.1.tgz
+    version: 1.0.1
+  guacamole:
+  - apiVersion: v2
+    appVersion: 1.6.0
+    created: "2025-07-19T15:55:49.27404844Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.7.20
+    description: A Helm chart for Guacamole
+    digest: 12677d8bd331d002624a9f53d5286f9bed2dd8e7770c594049deb34d0b304362
+    name: guacamole
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/guacamole-1.1.0.tgz
+    version: 1.1.0
+  hedgedoc:
+  - apiVersion: v2
+    appVersion: 1.10.3
+    created: "2025-07-19T15:55:49.278157976Z"
+    dependencies:
+    - name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 21.0.3
+    description: A Helm chart for Kubernetes
+    digest: 9591d005c17092e1d8d1494e25a7a3d4752938a82ff985618815745b202511a1
+    name: hedgedoc
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/hedgedoc-1.0.3.tgz
+    version: 1.0.3
+  homer:
+  - apiVersion: v2
+    appVersion: v25.05.2
+    created: "2025-07-19T15:55:49.279443186Z"
+    description: A Helm chart for a homer startpage
+    digest: 4fcbcb4b013a76a0d6d41cf106c8107f9757c76da615d6944354993e66fab7ec
+    name: homer
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/homer-1.3.1.tgz
+    version: 1.3.1
+  invidious:
+  - apiVersion: v2
+    appVersion: 2024.11.10-9892604-arm64
+    created: "2025-07-19T15:55:49.284195858Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.7.20
+    description: A Helm chart for invidious
+    digest: c1e8bdfdb66142078b7839a491afdb675123973a5d328f7cf354f0d09adfbe26
+    name: invidious
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/invidious-1.0.3.tgz
+    version: 1.0.3
+  jellyfin:
+  - apiVersion: v2
+    appVersion: "2025071405"
+    created: "2025-07-19T15:55:49.285426065Z"
+    description: A Helm chart for Jellyfin
+    digest: cad09602b0ec7d76a6e677fea1f2e12bf459a6b927e7e9b7db3258a82d432c79
+    name: jellyfin
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/jellyfin-25.0.0.tgz
+    version: 25.0.0
+  lldap:
+  - apiVersion: v2
+    appVersion: 2024-11-17-debian
+    created: "2025-07-19T15:55:49.286025289Z"
+    description: A Helm chart for lldap
+    digest: 69cfb8db8bc4f3622d601d32091130ca677ed4dfd4371b72a084d3c53723aca9
+    name: lldap
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/lldap-1.0.1.tgz
+    version: 1.0.1
+  longhorn-s3-backup-secret:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-19T15:55:49.286193274Z"
+    description: A Helm chart for Kubernetes to deploy a secret for longhorns s3 backup
+      mechanism
+    digest: 54a46eaae972aea2116a3bab6a6184cb27841a821efe12ce76ebda393716e302
+    name: longhorn-s3-backup-secret
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/longhorn-s3-backup-secret-1.0.0.tgz
+    version: 1.0.0
+  nginx-welcome:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2025-07-19T15:55:49.286367441Z"
+    description: A Helm chart to test external accesibility
+    digest: 3e970b3ec4029c9aa94cc33c3cdd5cd5f48247208fff6410483d62bcf40d6006
+    name: nginx-welcome
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/nginx-welcome-1.0.0.tgz
+    version: 1.0.0
+  ntfy:
+  - apiVersion: v2
+    appVersion: v2.13.0
+    created: "2025-07-19T15:55:49.286726945Z"
+    description: A Helm chart for ntfy.sh
+    digest: 55aacf5fb0e877d29f4a76c115057c62c6aa39034cee78f522e6c4a8aa073c1a
+    name: ntfy
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/ntfy-1.2.0.tgz
+    version: 1.2.0
+  olivetin:
+  - apiVersion: v2
+    appVersion: 2025.7.13
+    created: "2025-07-19T15:55:49.287096838Z"
+    description: A Helm chart for olivetin
+    digest: 0bb81ad180c350fae5f3e8072f8918ea9d05a6d42f1bac3f63217a30b8c376c5
+    name: olivetin
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/olivetin-2.5.0.tgz
+    version: 2.5.0
+  openvpn-as:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2025-07-19T15:55:49.287450973Z"
+    description: A Helm chart for OpenVPN access server
+    digest: ae93bd0084735f2c4ba4ba1b137bb6ee1aad22111c8ea18b6d85a840eade3993
+    name: openvpn-as
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/openvpn-as-1.1.0.tgz
+    version: 1.1.0
+  pg-upgrade:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-19T15:55:49.287721901Z"
+    description: A Helm chart for upgrading PostgreSQL installations
+    digest: 264512fc9498ab024c54ab2f2b885014633879c269ab867c88878e57ba5ca047
+    name: pg-upgrade
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/pg-upgrade-1.0.0.tgz
+    version: 1.0.0
+  pvc:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-19T15:55:49.287859218Z"
+    description: A Helm chart for a simple Kubernetes PVC
+    digest: c2e65b87637f4149c481e5958cc397d3f33f4be8626f3d0cf2913913c07bdf9b
+    name: pvc
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/pvc-1.0.0.tgz
+    version: 1.0.0
+  quickmockup-chart:
+  - apiVersion: v2
+    appVersion: sha256:e7dfca878181d365edea7d3a52be4c605b653dff6ee8b4228c797a538a856f2e
+    created: "2025-07-19T15:55:49.288213903Z"
+    description: A Helm chart for quickMockup
+    digest: cbc8165882518b7077cd6fe4977b7892fbddb3ff3ae13fa998177026a8a7b5d1
+    name: quickmockup-chart
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/quickmockup-chart-1.0.0.tgz
+    version: 1.0.0
+  scrumlr:
+  - apiVersion: v2
+    appVersion: 3.11.0
+    created: "2025-07-19T15:55:49.29536945Z"
+    dependencies:
+    - condition: nats.enabled
+      name: nats
+      repository: https://nats-io.github.io/k8s/helm/charts/
+      version: 1.3.9
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 16.7.20
+    description: A Helm chart for scrumlr
+    digest: f1576f04da2e8299ec432f4f54d55d8b0cbb5a7ee3b1c5c884e25e53f2d3fdc0
+    name: scrumlr
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/scrumlr-1.1.0.tgz
+    version: 1.1.0
+  uptime-kuma:
+  - apiVersion: v2
+    appVersion: 1.23.16
+    created: "2025-07-19T15:55:49.295735407Z"
+    description: A Helm chart for running uptime-kuma in Kubernetes
+    digest: b8a5f700198ae53fb5d3cd6c18c970568d832f1ae45712b57b7f4fb0bee8f4cf
+    name: uptime-kuma
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/uptime-kuma-1.0.0.tgz
+    version: 1.0.0
+  vaultwarden:
+  - apiVersion: v2
+    appVersion: 1.34.1
+    created: "2025-07-19T15:55:49.296118655Z"
+    description: A Helm chart for vaultwarden server
+    digest: b1260d8be4cfb5847e962ca625acbf408e6b921b9b8e65ef720e1195fb9228ce
+    name: vaultwarden
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/vaultwarden-1.1.0.tgz
+    version: 1.1.0
+  wg-easy:
+  - apiVersion: v2
+    appVersion: "14"
+    created: "2025-07-19T15:55:49.296563219Z"
+    description: A Helm chart for wg-easy
+    digest: f08c410baa397e18e2d82c7952d7ac3ea5e4f992373c0ac9d182156ec20749c0
+    name: wg-easy
+    type: application
+    urls:
+    - https://tibeer.github.io/helm-charts/wg-easy-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-07-19T15:55:49.261451527Z"
