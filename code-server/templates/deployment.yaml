@@ -51,23 +51,12 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: ipv6-configmap
-              mountPath: /etc/s6-overlay/s6-rc.d/svc-code-server/run
-              subPath: run
-            {{- if .Values.persistence.enabled }}
             - name: coder-server-data
               mountPath: {{ .Values.persistence.mountPath }}
-            {{- end }}
           {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
           {{- end }}
       volumes:
-        - name: ipv6-configmap
-          configMap:
-            name: {{ include "code-server.fullname" . }}-ipv6
-            items:
-              - key: run
-                path: run
         - name: coder-server-data
           {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
