@@ -3,9 +3,9 @@ entries:
   awx:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-22T08:16:50.044332538Z"
+    created: "2025-09-24T07:26:54.272526927Z"
     description: A Helm chart for the AWX CRD used by the AWX operator
-    digest: b20dad1a9fd85e49a0be0fd838ed18b9a5a886adf9a7902e4c2a83737b1d770b
+    digest: fa5357ec5e46df98b921af0b84c979f99e3d9780d24c15f334956382e700c6c6
     name: awx
     type: application
     urls:
@@ -14,9 +14,9 @@ entries:
   basic-auth:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-22T08:16:50.044539106Z"
+    created: "2025-09-24T07:26:54.272674384Z"
     description: A Helm chart for Kubernetes to deploy a basic auth secret
-    digest: 2c3d4180b66a311966d587df303348b5c442f5406f671c74a61ae345fa2fcf7c
+    digest: a94f9617ed95b4ee0bfe789d87e5d98e394f6b038b31cdf7d82bb91d821463dc
     name: basic-auth
     type: application
     urls:
@@ -25,9 +25,9 @@ entries:
   cert-manager-crds:
   - apiVersion: v2
     appVersion: 1.15.3
-    created: "2025-09-22T08:16:50.046076371Z"
+    created: "2025-09-24T07:26:54.274514298Z"
     description: A Helm chart for cert-manager CRDs
-    digest: 45aaab16523c7cd949205aeab212dfc04aaaf4dc5b48ed968c863624e925e489
+    digest: 68f7948302ee69cb60ce3a958ad18f75e3efe8d5438b23a083c68878dd31aaa8
     name: cert-manager-crds
     type: application
     urls:
@@ -36,9 +36,9 @@ entries:
   certificate:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-22T08:16:50.04625701Z"
+    created: "2025-09-24T07:26:54.275035213Z"
     description: A Helm chart for a cert-manager certificate
-    digest: a35d396411011c4f7db3db3131f48f53063a750c3fac400cf4841183da92c30d
+    digest: b6bbb1578d4ad45c68ddeaf62084c46052daf290960c141d0043422c69279273
     name: certificate
     type: application
     urls:
@@ -47,9 +47,9 @@ entries:
   cluster-issuer:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-22T08:16:50.046434733Z"
+    created: "2025-09-24T07:26:54.275202016Z"
     description: A Helm chart for Kubernetes to deploy a cluster-issuer
-    digest: e3211e28c0ce1735aa9ca0f9fdf8896d55171d3ff29b3495306e7df110a358a3
+    digest: 8e722d79403a395ae35a833747d238e08127544146b5e847aaadd420e73b396a
     name: cluster-issuer
     type: application
     urls:
@@ -58,9 +58,9 @@ entries:
   code-server:
   - apiVersion: v2
     appVersion: 4.104.1
-    created: "2025-09-22T08:16:50.047111293Z"
+    created: "2025-09-24T07:26:54.275626713Z"
     description: A Helm chart for code-server
-    digest: c1377d1bcd15f8f72f68ec863f114271ca956d5e40d8ad29449d37c3d32508cc
+    digest: 962e4b246ca2267781e1cdd7c574c7f1dfad00dcd05ac05bd171b644a24c1d6d
     name: code-server
     type: application
     urls:
@@ -69,13 +69,13 @@ entries:
   fastapi-cockroachdb-mock:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-09-22T08:16:50.050075782Z"
+    created: "2025-09-24T07:26:54.27815022Z"
     dependencies:
     - name: cockroachdb
       repository: https://charts.cockroachdb.com/
       version: 18.0.1
     description: A Helm chart to test a workload
-    digest: 42830a93d053f23c40332d1a003119a7d448b564e9e08b5d1d42fcfe705485ef
+    digest: fe10b4680dfa3587b33fad5aacb66bb8856457724695ae3716d0cef56e60871c
     name: fastapi-cockroachdb-mock
     type: application
     urls:
@@ -84,9 +84,9 @@ entries:
   glance:
   - apiVersion: v2
     appVersion: v0.8.4
-    created: "2025-09-22T08:16:50.050476514Z"
+    created: "2025-09-24T07:26:54.278523Z"
     description: A Helm chart for glance
-    digest: 7e6413b8571b77849bd8bc95a9f673812f6fee22a1590e318ddc0271f5b4abce
+    digest: 5c4ad7addfc57ae9d1715e38181becf66c03d1f5600537c5aba1249e9fa222a3
     name: glance
     type: application
     urls:
@@ -95,9 +95,9 @@ entries:
   gotify:
   - apiVersion: v2
     appVersion: 2.7.3
-    created: "2025-09-22T08:16:50.050918995Z"
+    created: "2025-09-24T07:26:54.279001559Z"
     description: A Helm chart for gotify, inspired by nicholaswilde
-    digest: 8338468e0cc71f3c8f3abdd7b9230fc630ae176f731b17ae3a3b712692a2eeaa
+    digest: a3d4a127c6a6257760e9aefbdaefc29f220d6ce2d076a128c1f74d566a65fea2
     name: gotify
     type: application
     urls:
@@ -106,14 +106,14 @@ entries:
   guacamole:
   - apiVersion: v2
     appVersion: 1.6.0
-    created: "2025-09-22T08:16:50.056567292Z"
+    created: "2025-09-24T07:26:54.28467873Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
       repository: oci://registry-1.docker.io/bitnamicharts
       version: 16.7.27
     description: A Helm chart for Guacamole
-    digest: 5b4b00142fb2fefba5a16d7ceb14fde070302290cfed2646621d62623c458d7e
+    digest: 236fdf0ea4e7e30eab80becee17c66c2dfac5185e2b92e0655ed8448b474d698
     name: guacamole
     type: application
     urls:
@@ -122,13 +122,13 @@ entries:
   hedgedoc:
   - apiVersion: v2
     appVersion: 1.10.3
-    created: "2025-09-22T08:16:50.06173339Z"
+    created: "2025-09-24T07:26:54.28881287Z"
     dependencies:
     - name: mariadb
       repository: https://charts.bitnami.com/bitnami
       version: 22.0.0
     description: A Helm chart for Kubernetes
-    digest: 348116d52477b55481ebcd583572a0f86247f01bf7dbafbc90c63a4358bec7d8
+    digest: b8b304c557f2161979514d79c99b3111e7ae8a9b5fd72341da739df3fffe416c
     name: hedgedoc
     type: application
     urls:
@@ -137,9 +137,9 @@ entries:
   homer:
   - apiVersion: v2
     appVersion: v25.08.1
-    created: "2025-09-22T08:16:50.062317626Z"
+    created: "2025-09-24T07:26:54.290125763Z"
     description: A Helm chart for a homer startpage
-    digest: 02d62f026a45cbc060b465a87a78024cc64996e903c735fcf55a84b352672450
+    digest: c49cec1a149d4e28001f30d770a14e2cb4f171be34e5081cb24f14bf8f4d5337
     name: homer
     type: application
     urls:
@@ -148,14 +148,14 @@ entries:
   invidious:
   - apiVersion: v2
     appVersion: 2024.11.10-9892604-arm64
-    created: "2025-09-22T08:16:50.067177107Z"
+    created: "2025-09-24T07:26:54.294978602Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
       repository: oci://registry-1.docker.io/bitnamicharts
       version: 16.7.27
     description: A Helm chart for invidious
-    digest: f7bc7200e487fb63c1696444632ca068559520e8337a681fc2e6e07be1f781c6
+    digest: 4a119aaf4e73c1da4dd8a276555fa9f6e9d12d4957f4c1ff167be02e8c9266ed
     name: invidious
     type: application
     urls:
@@ -164,9 +164,9 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: "2025092205"
-    created: "2025-09-22T08:16:50.067607285Z"
+    created: "2025-09-24T07:26:54.29611763Z"
     description: A Helm chart for Jellyfin
-    digest: 3a009c0c935c1bcebea44297e8f7ce801cdfdc5fe8370b54c6b1978cf7e31716
+    digest: a308f993ca5d412bac4b623daa22e06eaf1712eb71b95c2ad5c9f0d483be029c
     name: jellyfin
     type: application
     urls:
@@ -175,9 +175,9 @@ entries:
   lldap:
   - apiVersion: v2
     appVersion: 2024-11-17-debian
-    created: "2025-09-22T08:16:50.068426562Z"
+    created: "2025-09-24T07:26:54.296550723Z"
     description: A Helm chart for lldap
-    digest: 729e33c2ced9cc224444e4036d6e832d7591a7dcbc134ae3d8ff009ce9df45f7
+    digest: c89dc86de5f1d1ea8f020609215ce3eb6df8d7715f1434b1297c8ee7d6ace8e3
     name: lldap
     type: application
     urls:
@@ -186,10 +186,10 @@ entries:
   longhorn-s3-backup-secret:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-22T08:16:50.068919818Z"
+    created: "2025-09-24T07:26:54.296714791Z"
     description: A Helm chart for Kubernetes to deploy a secret for longhorns s3 backup
       mechanism
-    digest: 7fa7164466befb512b584ea06485c2d61c25e22333859f123f6bf2d7809af92e
+    digest: 4865cf0fa1ec8040e7ced4d31378eaea42c2d79f01d0118723e40c2198c5ab4c
     name: longhorn-s3-backup-secret
     type: application
     urls:
@@ -198,9 +198,9 @@ entries:
   nginx-welcome:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-09-22T08:16:50.069152245Z"
+    created: "2025-09-24T07:26:54.296917271Z"
     description: A Helm chart to test external accesibility
-    digest: 1f2700db090bf1cbd06ba92bd05e71e969f380820605a13420f18d0fd93115cb
+    digest: f049f11b11367fb72eabefb900f7282c9da964c238766ed0021fbd3a5e7c8a77
     name: nginx-welcome
     type: application
     urls:
@@ -209,9 +209,9 @@ entries:
   ntfy:
   - apiVersion: v2
     appVersion: v2.14.0
-    created: "2025-09-22T08:16:50.06957092Z"
+    created: "2025-09-24T07:26:54.29727344Z"
     description: A Helm chart for ntfy.sh
-    digest: e478ddcde18c8b3408d88b2a3533deea3d697e34c8d8d5a02d0ada594d9b3833
+    digest: fb2f0172273f4aed0aeb62aaf41627b94e5e5c7e03082fd97a8784e1949ec7e9
     name: ntfy
     type: application
     urls:
@@ -220,9 +220,9 @@ entries:
   olivetin:
   - apiVersion: v2
     appVersion: 2025.7.29
-    created: "2025-09-22T08:16:50.069947527Z"
+    created: "2025-09-24T07:26:54.297619981Z"
     description: A Helm chart for olivetin
-    digest: ace2c624dc6b69135ddce4682b6fc6484cf1a0081f6a5f76a1f194f8040aad68
+    digest: 48dbfabe0f63e318d16a0a5d119ae2610b978e2be3a5cc5759a41f13b21dc60d
     name: olivetin
     type: application
     urls:
@@ -231,9 +231,9 @@ entries:
   openvpn-as:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-09-22T08:16:50.070302053Z"
+    created: "2025-09-24T07:26:54.297974366Z"
     description: A Helm chart for OpenVPN access server
-    digest: 60f1188679e6672738b3740da33f02c446886cf3366db66c448ae6f979fc9560
+    digest: 58bb97f75f628a3838da9ac132c8f0826e0865efe4f84607a1947f9b9b710c79
     name: openvpn-as
     type: application
     urls:
@@ -242,9 +242,9 @@ entries:
   pg-upgrade:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-22T08:16:50.070599451Z"
+    created: "2025-09-24T07:26:54.298247038Z"
     description: A Helm chart for upgrading PostgreSQL installations
-    digest: 55b8e9817bf06acdeae2348cef4a2239bc51f56b4ccfdc845e521ec96f7effd7
+    digest: ed628c28b33e787a63c202b744a8532d5119e0be6795f52f57132e618d27cc18
     name: pg-upgrade
     type: application
     urls:
@@ -253,9 +253,9 @@ entries:
   pvc:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-09-22T08:16:50.070740736Z"
+    created: "2025-09-24T07:26:54.298383414Z"
     description: A Helm chart for a simple Kubernetes PVC
-    digest: 82164ebafd4936eaeac997a4890ff9a3d9759832ebd858adabf318a24373e65d
+    digest: 23cfa48a40dc409ddf127716d430f0e1d6c9dbb3ecafb14a07d966bd453865f2
     name: pvc
     type: application
     urls:
@@ -264,9 +264,9 @@ entries:
   quickmockup-chart:
   - apiVersion: v2
     appVersion: sha256:e7dfca878181d365edea7d3a52be4c605b653dff6ee8b4228c797a538a856f2e
-    created: "2025-09-22T08:16:50.071094991Z"
+    created: "2025-09-24T07:26:54.298716479Z"
     description: A Helm chart for quickMockup
-    digest: c04364bd3b04503c3bb8a60ade58f5fb19ee187768c39f4f0c61a0f370f223b9
+    digest: 1bc1b764d06fd172e57ae0efb4ef51ef7fb0600a33bd3a584f6031ef24da1aef
     name: quickmockup-chart
     type: application
     urls:
@@ -274,8 +274,8 @@ entries:
     version: 1.0.0
   scrumlr:
   - apiVersion: v2
-    appVersion: 4.0.0
-    created: "2025-09-22T08:16:50.078430008Z"
+    appVersion: 4.1.0
+    created: "2025-09-24T07:26:54.30595671Z"
     dependencies:
     - condition: nats.enabled
       name: nats
@@ -286,18 +286,18 @@ entries:
       repository: oci://registry-1.docker.io/bitnamicharts
       version: 16.7.27
     description: A Helm chart for scrumlr
-    digest: 54192025d02124ccb5c85281e0f38dbf88535d220bfc0d646221c331d1ad1dab
+    digest: 3ba37c3ed3b4c602bb658c43c1ffe819b01171315848a9f8dfc72b8d7f2b81ff
     name: scrumlr
     type: application
     urls:
-    - https://tibeer.github.io/helm-charts/scrumlr-2.0.0.tgz
-    version: 2.0.0
+    - https://tibeer.github.io/helm-charts/scrumlr-2.1.0.tgz
+    version: 2.1.0
   uptime-kuma:
   - apiVersion: v2
     appVersion: 1.23.16
-    created: "2025-09-22T08:16:50.078801376Z"
+    created: "2025-09-24T07:26:54.306319421Z"
     description: A Helm chart for running uptime-kuma in Kubernetes
-    digest: efd5139da53bb25b03839799b82639b3a0bc413ccb58693ba54bd358d88bf4d4
+    digest: c27cb729e6652528ecb5b3846cfe3518c2120d27f87ce00d24f74a4cb7a61f64
     name: uptime-kuma
     type: application
     urls:
@@ -306,9 +306,9 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: 1.34.3
-    created: "2025-09-22T08:16:50.079169416Z"
+    created: "2025-09-24T07:26:54.306676281Z"
     description: A Helm chart for vaultwarden server
-    digest: 42eda785847f05ad2b3d75a823177f6793cb8dc12fc9e04e08c2dc1f5d2c765f
+    digest: 5f03f25e76979312a67d2ec21b07264fdb9778066727c3cd78890464f5f221f9
     name: vaultwarden
     type: application
     urls:
@@ -317,12 +317,12 @@ entries:
   wg-easy:
   - apiVersion: v2
     appVersion: "14"
-    created: "2025-09-22T08:16:50.079627797Z"
+    created: "2025-09-24T07:26:54.307152254Z"
     description: A Helm chart for wg-easy
-    digest: b5bf5ee7453573cc06a680ae16f8806c17415ef4e13520fecb55c4ef1ee194a2
+    digest: b64411893f56bb11355b0e64ae1fb93d7be2b3090d5d5790d767e8e56b30c1eb
     name: wg-easy
     type: application
     urls:
     - https://tibeer.github.io/helm-charts/wg-easy-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-22T08:16:50.04319788Z"
+generated: "2025-09-24T07:26:54.272170418Z"
