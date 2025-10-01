@@ -11,3 +11,10 @@ spec:
       - http01:
           ingress:
             ingressClassName: {{ .Values.ingressClassName }}
+            ingressTemplate:
+              spec:
+                rules:
+                - http:
+                    paths:
+                    - path: /.well-known/acme-challenge
+                      pathType: Prefix
