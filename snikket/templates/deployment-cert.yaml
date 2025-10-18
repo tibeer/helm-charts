@@ -1,0 +1,130 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "snikket.fullname" . }}-server
+  labels:
+    {{- include "snikket.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "snikket.selectorLabels" . | nindent 6 }}
+      component: server
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "snikket.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        component: server
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "snikket.serviceAccountName" . }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.image.server.repository }}:{{ .Values.image.server.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.server.pullPolicy }}
+          ports:
+            - name: xmpp-client
+              containerPort: {{ .Values.service.xmppClient.port }}
+              protocol: TCP
+            - name: xmpp-server
+              containerPort: {{ .Values.service.xmppServer.port }}
+              protocol: TCP
+            - name: stun-tcp-3478
+              containerPort: 3478
+              protocol: TCP
+            - name: stun-udp-3478
+              containerPort: 3478
+              protocol: UDP
+            - name: stun-tcp-3479
+              containerPort: 3479
+              protocol: TCP
+            - name: stun-udp-3479
+              containerPort: 3479
+              protocol: UDP
+            - name: stun-tcp-5349
+              containerPort: 5349
+              protocol: TCP
+            - name: stun-udp-5349
+              containerPort: 5349
+              protocol: UDP
+            - name: stun-tcp-5350
+              containerPort: 5350
+              protocol: TCP
+            - name: stun-udp-5350
+              containerPort: 5350
+              protocol: UDP
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ include "snikket.fullname" . }}-env
+          volumeMounts:
+            - name: data
+              mountPath: /snikket
+          {{- range .Values.ingress.hosts }}
+            - name: acme
+              mountPath: /snikket/letsencrypt/live/{{ .host }}
+              readOnly: true
+          {{- end }}
+          {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "snikket.fullname" . }}-data
+        - name: acme
+          secret:
+            secretName: {{ (index .Values.ingress.tls 0).secretName | default (printf "%s-tls" (include "snikket.fullname" .)) }}
+            items:
+              - key: tls.crt
+                path: fullchain.pem
+              - key: tls.key
+                path: privkey.pem
+      {{- with .Values.volumes }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

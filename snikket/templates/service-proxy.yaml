@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "snikket.fullname" . }}-proxy
+  labels:
+    {{- include "snikket.labels" . | nindent 4 }}
+    component: proxy
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.proxy.port }}
+      targetPort: proxy
+      protocol: TCP
+      name: proxy
+    - port: {{ .Values.service.proxyTLS.port }}
+      targetPort: proxy-tls
+      protocol: TCP
+      name: proxy-tls
+  selector:
+    {{- include "snikket.selectorLabels" . | nindent 4 }}
+    component: proxy
