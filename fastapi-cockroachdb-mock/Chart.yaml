@@ -6,6 +6,6 @@ version: 1.0.0
 appVersion: "latest"  # nginx version
 dependencies:
   - name: cockroachdb
-    version: "18.0.4"
+    version: "18.0.5"
     repository: https://charts.cockroachdb.com/
     
