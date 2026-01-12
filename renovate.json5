@@ -4,6 +4,8 @@
   "reviewers": [
     "tibeer"
   ],
+  // not using minimumReleaseAge for the moment, docker does not support timestamps
+  //"minimumReleaseAge": "7 days",
   "customManagers": [
     {
       "customType": "regex",
