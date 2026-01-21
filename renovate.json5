@@ -14,8 +14,12 @@
       "fileMatch": [
         "(^|/|\\.)Chart\\.yaml$"
       ],
+      // old match string
+      //"matchStrings": [
+      //  "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?'?(?<currentValue>[\\w+\\.\\-]*)'"
+      //]
       "matchStrings": [
-        "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?'?(?<currentValue>[\\w+\\.\\-]*)'"
+        "#\\s*renovate:\\s*image=(?<depName>[^\\s]+)[\\s\\S]*?appVersion:\\s*['\"]?(?<currentValue>[^'\"\\s]+)"
       ]
     }
   ],
