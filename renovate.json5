@@ -1,44 +1,44 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "dependencyDashboard": true,
-  "reviewers": [
-    "tibeer"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  dependencyDashboard: true,
+  reviewers: [
+    'tibeer',
+  ],
+  enabledManagers: [
+    'helm-values',
+    'custom.regex'
   ],
   // not using minimumReleaseAge for the moment, docker does not support timestamps
-  //"minimumReleaseAge": "7 days",
-  "customManagers": [
+  //minimumReleaseAge: '7 days',
+  customManagers: [
     {
-      "customType": "regex",
-      "description": "Update chart appVersion according to docker image references",
-      "datasourceTemplate": "docker",
-      "fileMatch": [
-        "(^|/|\\.)Chart\\.yaml$"
+      customType: 'regex',
+      description: 'Update chart appVersion according to docker image references',
+      "datasourceTemplate": 'docker',
+      managerFilePatterns: [
+        '(^|/|\\.)Chart\\.yaml$',
       ],
-      // old match string
-      //"matchStrings": [
-      //  "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?'?(?<currentValue>[\\w+\\.\\-]*)'"
-      //]
-      "matchStrings": [
-        "#\\s*renovate:\\s*image=(?<depName>[^\\s]+)[\\s\\S]*?appVersion:\\s*['\"]?(?<currentValue>[^'\"\\s]+)"
-      ]
-    }
+      matchStrings: [
+        '#\\s*renovate:\\s*image=(?<depName>[^\\s]+)[\\s\\S]*?appVersion:\\s*[\'"]?(?<currentValue>[^\'"\\s]+)',
+      ],
+    },
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "description": "Bump helm chart versions by a patch when updating values files. Digests, pins, rollbacks, replacements and pinDigest updates are deliberately ignored since in our use case, these need a manual decision about the version bump for the chart. This can be removed when https://github.com/renovatebot/renovate/issues/8231 is implemented and enabled.",
-      "matchManagers": [
-        "helm-values",
-        "custom.regex"
+      description: 'Bump helm chart versions by a patch when updating values files. Digests, pins, rollbacks, replacements and pinDigest updates are deliberately ignored since in our use case, these need a manual decision about the version bump for the chart. This can be removed when https://github.com/renovatebot/renovate/issues/8231 is implemented and enabled.',
+      matchManagers: [
+        'helm-values',
+        'custom.regex',
       ],
-      "postUpgradeTasks": {
-        "commands": [
-          "bash .scripts/bump-chart-version.sh '{{{updateType}}}' '{{{packageFile}}}'"
+      postUpgradeTasks: {
+        commands: [
+          "bash .scripts/bump-chart-version.sh '{{{updateType}}}' '{{{packageFile}}}'",
         ],
-        "fileFilters": [
-          "**/Chart.yaml"
+        fileFilters: [
+          '**/Chart.yaml',
         ],
-        "executionMode": "branch"
-      }
-    }
-  ]
+        executionMode: 'branch',
+      },
+    },
+  ],
 }
