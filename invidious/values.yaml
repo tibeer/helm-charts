@@ -48,7 +48,7 @@ ingress:
   className: "nginx"
   annotations:
     cert-manager.io/cluster-issuer: "staging"
-    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/ingress.class: "traefik"
     # kubernetes.io/tls-acme: "true"
     ingress.kubernetes.io/configuration-snippet: |
       proxy_pass           http://invidious:3000;

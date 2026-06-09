@@ -77,10 +77,10 @@ ingress:
     className: "nginx"
     annotations:
       cert-manager.io/cluster-issuer: "staging"
-      nginx.ingress.kubernetes.io/enable-cors: "true"
-      nginx.ingress.kubernetes.io/cors-allow-origin: "https://api.scrumlr.beta.tibeer.de, http://api.scrumlr.beta.tibeer.de, https://scrumlr.beta.tibeer.de, http://scrumlr.beta.tibeer.de, https://localhost:8080, http://localhost:8080"
-      nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS, DELETE"
-      nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin"
+      #nginx.ingress.kubernetes.io/enable-cors: "true"
+      #nginx.ingress.kubernetes.io/cors-allow-origin: "https://api.scrumlr.beta.tibeer.de, http://api.scrumlr.beta.tibeer.de, https://scrumlr.beta.tibeer.de, http://scrumlr.beta.tibeer.de, https://localhost:8080, http://localhost:8080"
+      #nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS, DELETE"
+      #nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin"
     hosts:
       - host: api.scrumlr.beta.tibeer.de
         paths:
@@ -95,10 +95,10 @@ ingress:
     className: "nginx"
     annotations:
       cert-manager.io/cluster-issuer: "staging"
-      nginx.ingress.kubernetes.io/enable-cors: "true"
-      nginx.ingress.kubernetes.io/cors-allow-origin: "https://api.scrumlr.beta.tibeer.de, http://api.scrumlr.beta.tibeer.de, https://scrumlr.beta.tibeer.de, http://scrumlr.beta.tibeer.de, https://localhost:8080, http://localhost:8080"
-      nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS, DELETE"
-      nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin"
+      #nginx.ingress.kubernetes.io/enable-cors: "true"
+      #nginx.ingress.kubernetes.io/cors-allow-origin: "https://api.scrumlr.beta.tibeer.de, http://api.scrumlr.beta.tibeer.de, https://scrumlr.beta.tibeer.de, http://scrumlr.beta.tibeer.de, https://localhost:8080, http://localhost:8080"
+      #nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS, DELETE"
+      #nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,X-LANG,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,X-Api-Key,X-Device-Id,Access-Control-Allow-Origin"
     hosts:
       - host: scrumlr.beta.tibeer.de
         paths:
