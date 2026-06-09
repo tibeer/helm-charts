@@ -12,7 +12,7 @@ awx:
   password: "Super$ecr3t"
 
 ingress:
-  className: nginx
+  className: "nginx"
   type: ingress
   annotations: {}
   hosts:
