@@ -2,6 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "openvpn-as.fullname" . }}-web
+  {{- with .Values.serviceWebAnnotations }}
+  annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
   labels:
     {{- include "openvpn-as.labels" . | nindent 4 }}
 spec:
